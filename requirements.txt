@@ -1,0 +1,9 @@
+# Core dependencies will be finalized after the exact implementations are selected.
+
+numpy
+opencv-python
+matplotlib
+torch
+torchvision
+wandb
+

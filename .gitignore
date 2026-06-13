@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Large local data and outputs
+task1_3dgs_aigc/data/*
+task1_3dgs_aigc/outputs/*
+task1_3dgs_aigc/assets/*
+task2_lerobot_act/data/*
+task2_lerobot_act/outputs/*
+task2_lerobot_act/checkpoints/*
+
+# Keep directory placeholders
+!.gitkeep
+
+# Model weights and generated media
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+*.ply
+*.obj
+*.glb
+*.mp4
+*.avi
+*.mov
+
+# Logs
+wandb/
+runs/
+logs/
+*.log
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
