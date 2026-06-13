@@ -1,42 +1,28 @@
 # 3DGS-AIGC-ACT Final Project
 
-This repository contains the final project for Deep Learning and Spatial Intelligence.
+Final project for **Deep Learning and Spatial Intelligence**.
 
-The project includes two tasks:
+This repository contains two tasks:
 
-- **Task 1:** Multi-source 3D asset generation and real-scene fusion based on 3DGS and AIGC.
-- **Task 2:** Cross-environment generalization of ACT policies based on LeRobot.
+- **Task 1:** 3DGS and AIGC based 3D asset generation, reconstruction, fusion, and rendering.
+- **Task 2:** LeRobot ACT policy training and zero-shot cross-environment evaluation.
 
-## Repository Structure
+## Main Folders
 
 ```text
-3dgs-aigc-act-final/
-├── README.md
-├── requirements.txt
-├── environment.yml
-├── task1_3dgs_aigc/
-│   ├── README.md
-│   ├── configs/
-│   ├── data/
-│   ├── scripts/
-│   ├── assets/
-│   ├── outputs/
-│   └── docs/
-├── task2_lerobot_act/
-│   ├── README.md
-│   ├── configs/
-│   ├── data/
-│   ├── scripts/
-│   ├── checkpoints/
-│   ├── outputs/
-│   └── docs/
-├── reports/
-└── third_party/
+.
+|-- README.md              Project overview and runnable entry points.
+|-- requirements.txt       Python package requirements.
+|-- environment.yml        Conda environment template.
+|-- task1_3dgs_aigc/       Task 1: 3DGS reconstruction, AIGC assets, and scene fusion.
+|-- task2_lerobot_act/     Task 2: LeRobot ACT training and evaluation.
+|-- reports/               Final report materials and exported figures.
+`-- external_repos/        Optional external source repositories, such as 3DGS or LeRobot.
 ```
 
-## Environment Setup
+Large datasets, checkpoints, rendered videos, and logs should not be committed directly. Put download links or preparation notes in the corresponding task folder.
 
-The full environment will be finalized after implementation.
+## Environment
 
 ```bash
 conda env create -f environment.yml
@@ -44,22 +30,18 @@ conda activate spatial-final
 pip install -r requirements.txt
 ```
 
-## Data Preparation
+The final environment may be split by task if 3DGS, threestudio, Zero123, and LeRobot require incompatible dependencies.
+
+## Data
 
 ### Task 1
 
-Prepare the following data:
-
-- Multi-view images or video for object A.
-- One input image for object C.
-- One open-source background scene, such as a Mip-NeRF 360 scene.
-
-Suggested local paths:
+Suggested local data layout:
 
 ```text
-task1_3dgs_aigc/data/object_a/
-task1_3dgs_aigc/data/object_c/
-task1_3dgs_aigc/data/background/
+task1_3dgs_aigc/data/object_a/      # multi-view images or video
+task1_3dgs_aigc/data/object_c/      # single input image
+task1_3dgs_aigc/data/background/    # open-source background scene
 ```
 
 ### Task 2
@@ -68,7 +50,7 @@ Use the provided CALVIN-LeRobot dataset:
 
 https://huggingface.co/datasets/xiaoma26/calvin-lerobot/tree/main
 
-Suggested local paths:
+Suggested local data layout:
 
 ```text
 task2_lerobot_act/data/splitA/
@@ -77,46 +59,30 @@ task2_lerobot_act/data/splitC/
 task2_lerobot_act/data/splitD/
 ```
 
-## Train and Test Commands
+## Commands
 
-Final commands will be updated after the codebase is completed.
+These commands are placeholders and should be replaced by the final runnable scripts.
 
 ### Task 1
 
 ```bash
-# Reconstruct object A with 3DGS
 bash task1_3dgs_aigc/scripts/train_object_a_3dgs.sh
-
-# Reconstruct background scene with 3DGS
 bash task1_3dgs_aigc/scripts/train_background_3dgs.sh
-
-# Generate object B from text
 bash task1_3dgs_aigc/scripts/generate_object_b_text_to_3d.sh
-
-# Generate object C from a single image
 bash task1_3dgs_aigc/scripts/generate_object_c_image_to_3d.sh
-
-# Fuse assets and render video
 bash task1_3dgs_aigc/scripts/render_fused_scene.sh
 ```
 
 ### Task 2
 
 ```bash
-# Train ACT on environment A
 bash task2_lerobot_act/scripts/train_act_splitA.sh
-
-# Train ACT on environments A, B, and C
 bash task2_lerobot_act/scripts/train_act_splitABC.sh
-
-# Evaluate both models on unseen environment D
 bash task2_lerobot_act/scripts/eval_act_splitD.sh
 ```
 
-## Expected Deliverables
+## Expected Outputs
 
-- Rendered images and video for Task 1.
-- Training curves and evaluation metrics for Task 2.
-- Model checkpoints or external download links.
-- Final PDF report with method, results, analysis, repository link, and weight links.
-
+- Task 1: reconstructed/generated 3D assets, fused scene, rendered images, and demo video.
+- Task 2: ACT checkpoints, training curves, zero-shot metrics on `splitD`, and comparison tables.
+- Final report: method descriptions, visualizations, hyperparameters, metrics, GitHub link, and weight download links.
