@@ -3,17 +3,14 @@
 | 交付项 | 路径 |
 |---|---|
 | 资产格式说明 | `homework/member_B/asset_format_summary.md` |
-| B 高斯资产 | `homework/member_B/assets/object_B/object_B_gaussian.ply` |
-| C 高斯资产 | `homework/member_B/assets/object_C/object_C_gaussian.ply` |
 | 高斯融合 manifest | `homework/member_B/asset_manifest_gaussian_native.csv` |
-| 统一高斯融合场景 | `homework/member_B/renders/fused_scene_gaussian.ply` |
+| 最终融合高斯场景（压缩） | `outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply.gz` |
+| 最终俯视位置检查图 | `outputs/renders/guitar_floor_v3_topdown.png` |
+| 最终位置统计 | `outputs/renders/guitar_floor_v3_stats.csv` |
+| clean-candidate 复现输入 | `outputs/renders/fused_scene_gaussian_clean_candidate.ply.gz` |
 | 资产位置/尺度/朝向表 | `homework/member_B/asset_manifest_clear.csv` |
 | 融合脚本 | `homework/member_B/scripts/fuse_scene_blender.py` |
-| Blender 场景文件 | `homework/member_B/renders/fusion_scene_clear/fusion_scene.blend` |
-| 多视角渲染图 | `homework/member_B/renders/fusion_scene_clear/view_000.png` 至 `view_035.png` |
-| 多视角总览图 | `homework/member_B/renders/fusion_overview_clear.png` |
-| 最终漫游视频 | `homework/member_B/renders/flythrough_clear.mp4` |
-| 融合渲染日志 | `homework/member_B/logs/fusion_clear_render.log` |
+| 多视角总览图 | `outputs/renders/fusion_overview_clear.png` |
 | B/C 方法对比表 | `homework/member_B/comparison_table.csv` |
 
 当前高斯融合布局（`asset_manifest_gaussian_native.csv`）：
@@ -27,7 +24,7 @@
 
 Blender 预览布局另见 `asset_manifest_clear.csv`；该预览仅用于报告截图/视频，不代表原生 3DGS 渲染。
 
-渲染参数：Blender `4.5.1 LTS`，CPU Cycles，`1280 x 720`，36 个环绕视角，`12 fps` 合成 MP4。当前推荐提交统一高斯场景 `fused_scene_gaussian.ply` 作为格式统一结果；`flythrough_clear.mp4` 是 Blender 近似预览，B/C 被放大并置于前景。
+当前推荐提交统一高斯场景 `fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply.gz` 作为格式统一结果。`fused_scene_gaussian_clean_candidate.ply.gz` 仅保留为生成最终 v3 的复现输入。
 
 ## Final Clean Gaussian Candidate
 
@@ -40,8 +37,5 @@ After visual placement review, the recommended final 3DGS deliverable is:
 | 最终位置统计 | `outputs/renders/guitar_floor_v3_stats.csv` |
 | 三个前景资产 transform 表 | `docs/transforms_clean_candidate.csv` |
 | 吉他最终微调脚本 | `scripts/adjust_clean_candidate_guitar_floor_v3.py` |
-| 单独摆放后的 controller | `outputs/renders/placed_assets/controller_placed.ply` |
-| 单独摆放后的 bottle | `outputs/renders/placed_assets/bottle_placed.ply` |
-| 单独摆放后的 guitar | `outputs/renders/placed_assets/guitar_placed.ply` |
 
 该版本先分别调整 controller / bottle / guitar 的 translation、rotation、scale，再与未移动的 `counter.ply` 背景合并。经 SuperSplat 复查后，保留 controller 和 bottle 的 clean-candidate 位置，并将 guitar 单独下移到柜体/地面侧。`counter.ply` 的高斯记录保持在融合文件前缀中，未做整体移动或归一化。

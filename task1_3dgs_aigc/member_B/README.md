@@ -41,7 +41,7 @@
 | Blender 融合脚本 | `scripts/fuse_scene_blender.py` |
 | Blender 场景文件 | `renders/fusion_scene_clear/fusion_scene.blend` |
 | 多视角渲染图 | `renders/fusion_scene_clear/view_000.png` 至 `view_035.png` |
-| 多视角总览图 | `renders/fusion_overview_clear.png` |
+| 多视角总览图 | `outputs/renders/fusion_overview_clear.png` |
 | 最终漫游视频 | `renders/flythrough_clear.mp4` |
 | 融合渲染日志 | `logs/fusion_clear_render.log` |
 | B/C 方法对比表 | `comparison_table.csv` |

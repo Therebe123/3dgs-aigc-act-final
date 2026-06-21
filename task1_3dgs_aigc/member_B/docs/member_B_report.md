@@ -4,7 +4,7 @@
 
 组员 B 负责题目一中的 AIGC 资产生成与多源资产融合渲染。具体包括：使用文本到 3D 方法生成物体 B，使用单图到 3D 方法生成物体 C，将组员 A 提供的真实物体 A、背景场景与 AIGC 资产统一到同一种可渲染表达，并在同一 3D 场景中调整尺度、位置和朝向，最终输出多视角渲染图与漫游视频。
 
-本部分采用两级融合方案。首先，为了与组员 A 的 3DGS 背景保持一致，将物体 B/C 的 OBJ Mesh 表面采样并转换为 3DGS-compatible Gaussian PLY，再与物体 A 和背景的原生 Gaussian PLY 做代码级拼接，得到统一高斯场景 `renders/fused_scene_gaussian.ply`。其次，为了在普通环境中快速检查布局，额外提供 Blender 预览版：A/背景高斯被采样成彩色点云 Mesh，B/C 以 OBJ Mesh 导入并渲染 `flythrough_clear.mp4`。Blender 预览不等价于真实 3DGS viewer 渲染。
+本部分采用两级融合方案。首先，为了与组员 A 的 3DGS 背景保持一致，将物体 B/C 的 OBJ Mesh 表面采样并转换为 3DGS-compatible Gaussian PLY，再与物体 A 和背景的原生 Gaussian PLY 做代码级拼接，得到统一高斯场景 `outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply.gz`。其次，为了在普通环境中快速检查布局，额外提供 Blender 预览版：A/背景高斯被采样成彩色点云 Mesh，B/C 以 OBJ Mesh 导入并渲染 `flythrough_clear.mp4`。Blender 预览不等价于真实 3DGS viewer 渲染。
 
 ## 2. 物体 B：文本到 3D 生成
 
@@ -134,10 +134,10 @@ homework/member_B/repos/threestudio/load/zero123/stable_zero123.ckpt
 |---|---|---|---|---|
 | 背景场景 | 组员 A 提供 | 3DGS/Gaussian PLY | `assets/background/counter.ply` | 保持原生高斯，融合时保留全部 413019 个点 |
 | 物体 A | 组员 A 提供 | 3DGS/Gaussian PLY | `assets/object_A/controller2.ply` | 保持原生高斯，28039 个点 |
-| 物体 B | threestudio Stable DreamFusion + SD2.1 | OBJ Mesh | `assets/object_B/object_B_gaussian.ply` | 从 `object_B.obj` 表面采样 70000 个高斯点 |
-| 物体 C | 单图 + Stable-Zero123 | OBJ Mesh | `assets/object_C/object_C_gaussian.ply` | 从 `object_C.obj` 表面采样 50000 个高斯点 |
+| 物体 B | threestudio Stable DreamFusion + SD2.1 | OBJ Mesh | Gaussian PLY | 最终融合中使用 94000 个高斯点 |
+| 物体 C | 单图 + Stable-Zero123 | OBJ Mesh | Gaussian PLY | 最终融合中使用 90000 个高斯点 |
 
-最终代码级拼接结果为 `renders/fused_scene_gaussian.ply`，共 561058 个高斯点。该文件应使用 3DGS/Nerfstudio/SIBR/gsplat viewer 之类支持 Gaussian Splatting 的工具查看。普通 Blender 不能原生解释 `opacity/scale/rot/SH` 等高斯参数，因此只能作为近似预览。
+最终代码级拼接结果为 `outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply.gz`，解压后共 625058 个高斯点。该文件应使用 3DGS/Nerfstudio/SIBR/gsplat viewer 之类支持 Gaussian Splatting 的工具查看。普通 Blender 不能原生解释 `opacity/scale/rot/SH` 等高斯参数，因此只能作为近似预览。
 
 相关脚本：`scripts/mesh_to_gaussian_ply.py` 用于 B/C Mesh 到高斯 PLY 转换，`scripts/fuse_gaussian_scene.py` 用于拼接 A/B/C/背景高斯资产。详细格式说明见 `asset_format_summary.md`，最终融合文件清单见 `fusion_deliverables.md`。
 
@@ -152,15 +152,15 @@ homework/member_B/repos/threestudio/load/zero123/stable_zero123.ckpt
 | 物体 B | `(-0.32, -0.52, 0.12)` | `(0, 0, -8)` | `0.78` | 青花瓷花瓶，展示文本生成资产 |
 | 物体 C | `(0.48, -0.50, 0.12)` | `(0, 0, 12)` | `0.72` | 吉他，展示单图生成资产 |
 
-高斯统一版本使用 `scripts/fuse_gaussian_scene.py` 将 A/B/C/背景拼接为 `renders/fused_scene_gaussian.ply`。Blender 预览版本使用 `scripts/fuse_scene_blender.py` 自动导入资产、设置相机轨迹并输出多视角渲染图，再用 ffmpeg 合成为 `renders/flythrough_clear.mp4`。
+高斯统一版本使用 `scripts/fuse_gaussian_scene.py` 将 A/B/C/背景拼接为高斯场景，再用 `scripts/adjust_clean_candidate_guitar_floor_v3.py` 对吉他位置做最终微调。Blender 预览版本使用 `scripts/fuse_scene_blender.py` 自动导入资产、设置相机轨迹并输出多视角渲染图，再用 ffmpeg 合成为 `renders/flythrough_clear.mp4`。
 
 ## 6. 多视角渲染与漫游视频
 
 最终输出包括：
 
-- `renders/fused_scene_gaussian.ply`：A/B/C/背景统一为 3DGS-compatible Gaussian PLY 后的代码级拼接结果。
+- `outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply.gz`：A/B/C/背景统一为 3DGS-compatible Gaussian PLY 后的最终代码级拼接结果。
 - `renders/fusion_scene_clear/view_000.png` 至 `renders/fusion_scene_clear/view_035.png`：36 张 Blender 近似预览图。该版本将 B/C 放大并置于前景，便于明确看到花瓶和吉他。
-- `renders/fusion_overview_clear.png`：6 个代表视角拼图，便于报告中快速展示。
+- `outputs/renders/fusion_overview_clear.png`：6 个代表视角拼图，便于报告中快速展示。
 - `renders/flythrough_clear.mp4`：围绕融合资产的 Blender 近似预览漫游视频。
 - `renders/fusion_scene_clear/fusion_scene.blend`：融合后的 Blender 场景文件。
 - `logs/fusion_clear_render.log`：融合渲染日志。
