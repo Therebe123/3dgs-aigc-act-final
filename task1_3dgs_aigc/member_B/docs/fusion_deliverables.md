@@ -7,7 +7,6 @@
 | C 高斯资产 | `homework/member_B/assets/object_C/object_C_gaussian.ply` |
 | 高斯融合 manifest | `homework/member_B/asset_manifest_gaussian_native.csv` |
 | 统一高斯融合场景 | `homework/member_B/renders/fused_scene_gaussian.ply` |
-| 高斯融合说明 | `homework/member_B/gaussian_fusion_notes.md` |
 | 资产位置/尺度/朝向表 | `homework/member_B/asset_manifest_clear.csv` |
 | 融合脚本 | `homework/member_B/scripts/fuse_scene_blender.py` |
 | Blender 场景文件 | `homework/member_B/renders/fusion_scene_clear/fusion_scene.blend` |

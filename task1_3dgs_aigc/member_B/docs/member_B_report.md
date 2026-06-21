@@ -139,7 +139,7 @@ homework/member_B/repos/threestudio/load/zero123/stable_zero123.ckpt
 
 最终代码级拼接结果为 `renders/fused_scene_gaussian.ply`，共 561058 个高斯点。该文件应使用 3DGS/Nerfstudio/SIBR/gsplat viewer 之类支持 Gaussian Splatting 的工具查看。普通 Blender 不能原生解释 `opacity/scale/rot/SH` 等高斯参数，因此只能作为近似预览。
 
-相关脚本：`scripts/mesh_to_gaussian_ply.py` 用于 B/C Mesh 到高斯 PLY 转换，`scripts/fuse_gaussian_scene.py` 用于拼接 A/B/C/背景高斯资产。详细格式说明见 `asset_format_summary.md` 和 `gaussian_fusion_notes.md`。
+相关脚本：`scripts/mesh_to_gaussian_ply.py` 用于 B/C Mesh 到高斯 PLY 转换，`scripts/fuse_gaussian_scene.py` 用于拼接 A/B/C/背景高斯资产。详细格式说明见 `asset_format_summary.md`，最终融合文件清单见 `fusion_deliverables.md`。
 
 ## 5. 融合场景设计
 

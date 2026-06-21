@@ -157,7 +157,7 @@ homework/member_B/assets/object_C/object_C_preview.png
 homework/member_B/assets/object_C/object_C_turntable.mp4
 homework/member_B/assets/object_C/object_C_final_val.mp4
 homework/member_B/logs/object_C_zero123_train.log
-homework/member_B/object_C_final_deliverables.md
+homework/member_B/docs/member_B_report.md
 ```
 
 完整输出目录：

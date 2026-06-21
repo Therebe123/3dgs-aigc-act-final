@@ -8,7 +8,7 @@ This script supports two asset classes used in the final homework package:
 
 Run with:
   blender --background --python homework/member_B/scripts/fuse_scene_blender.py -- \
-    --manifest homework/member_B/asset_manifest.csv \
+    --manifest homework/member_B/asset_manifest_clear.csv \
     --output-dir homework/member_B/renders/fusion_scene \
     --resolution 1280 720 \
     --views 36
