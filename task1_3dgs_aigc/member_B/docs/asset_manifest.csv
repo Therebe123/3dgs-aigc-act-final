@@ -1,0 +1,5 @@
+name,path,type,location_x,location_y,location_z,rotation_x_deg,rotation_y_deg,rotation_z_deg,scale,notes
+background,assets/background/counter.ply,gaussian_ply,0,0,0,0,0,0,1.0,Background 3DGS/Gaussian PLY from member A; 413019 points; z-up
+object_A,assets/object_A/controller2.ply,gaussian_ply,-0.55,0.05,0.04,0,0,8,0.42,Object A 3DGS/Gaussian PLY from member A; 28039 points
+object_B,assets/object_B/object_B.obj,mesh_obj,0.08,-0.25,0.08,0,0,-10,0.28,Final SD2.1 threestudio porcelain vase OBJ mesh
+object_C,assets/object_C/object_C.obj,mesh_obj,0.62,-0.10,0.08,0,0,15,0.24,Stable-Zero123 guitar OBJ mesh exported from 600-step checkpoint

@@ -1,0 +1,5 @@
+name,path,type,location_x,location_y,location_z,rotation_x_deg,rotation_y_deg,rotation_z_deg,scale,notes
+background,assets/background/counter.ply,gaussian_ply,0,0,-0.12,0,0,0,0.75,Native background 3DGS/Gaussian PLY from member A
+object_A,assets/object_A/controller2.ply,gaussian_ply,-0.95,0.15,0.02,0,0,8,0.34,Native object A 3DGS/Gaussian PLY from member A
+object_B,assets/object_B/object_B_gaussian.ply,gaussian_ply,-0.32,-0.52,0.12,0,0,-8,0.78,Object B OBJ sampled and converted to 3DGS-compatible Gaussian PLY
+object_C,assets/object_C/object_C_gaussian.ply,gaussian_ply,0.48,-0.50,0.12,0,0,12,0.72,Object C OBJ sampled and converted to 3DGS-compatible Gaussian PLY

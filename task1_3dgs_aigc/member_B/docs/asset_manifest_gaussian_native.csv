@@ -1,0 +1,5 @@
+name,path,type,location_x,location_y,location_z,rotation_x_deg,rotation_y_deg,rotation_z_deg,scale,preserve_native,notes
+background,assets/background/counter.ply,gaussian_ply,0,0,0,0,0,0,1.0,true,Preserve native background 3DGS coordinates and scales
+object_A,assets/object_A/controller2.ply,gaussian_ply,0,0,0,0,0,0,1.0,true,Preserve native object A 3DGS coordinates and scales
+object_B,assets/object_B/object_B_gaussian.ply,gaussian_ply,-0.55,-0.70,-0.20,0,0,-8,0.55,false,Object B Gaussian inserted into native background coordinates
+object_C,assets/object_C/object_C_gaussian.ply,gaussian_ply,0.45,-0.70,-0.20,0,0,12,0.55,false,Object C Gaussian inserted into native background coordinates
