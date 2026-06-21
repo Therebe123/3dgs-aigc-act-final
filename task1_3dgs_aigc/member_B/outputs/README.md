@@ -15,8 +15,7 @@ Current `fused_scene_gaussian.ply.gz` preserves the native `counter.ply` kitchen
 The final placement-checked Gaussian scene is:
 
 ```bash
-gzip -d -k task1_3dgs_aigc/member_B/outputs/renders/fused_scene_gaussian_clean_candidate.ply.gz
+gzip -d -k task1_3dgs_aigc/member_B/outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply.gz
 ```
 
-Open `fused_scene_gaussian_clean_candidate.ply` in SuperSplat or another 3DGS viewer. The `counter.ply` background is preserved unchanged; `controller`, `bottle`, and `guitar` were transformed independently before the final merge. The transform table is in `docs/transforms_clean_candidate.csv`, and the top-down placement check is `outputs/renders/fused_scene_gaussian_clean_candidate_topdown_check.png`.
-
+Open `fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply` in SuperSplat or another 3DGS viewer. The `counter.ply` background is preserved unchanged; `controller` and `bottle` keep the reviewed clean-candidate placement, while the guitar is moved down to the cabinet/floor side. The original transform table is in `docs/transforms_clean_candidate.csv`; the final guitar adjustment is recorded by `scripts/adjust_clean_candidate_guitar_floor_v3.py`, `outputs/renders/guitar_floor_v3_stats.csv`, and `outputs/renders/guitar_floor_v3_topdown.png`.

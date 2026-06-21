@@ -36,12 +36,13 @@ After visual placement review, the recommended final 3DGS deliverable is:
 
 | 交付项 | 路径 |
 |---|---|
-| 最终融合高斯场景（压缩） | `outputs/renders/fused_scene_gaussian_clean_candidate.ply.gz` |
-| 俯视位置检查图 | `outputs/renders/fused_scene_gaussian_clean_candidate_topdown_check.png` |
+| 最终融合高斯场景（压缩） | `outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply.gz` |
+| 最终俯视位置检查图 | `outputs/renders/guitar_floor_v3_topdown.png` |
+| 最终位置统计 | `outputs/renders/guitar_floor_v3_stats.csv` |
 | 三个前景资产 transform 表 | `docs/transforms_clean_candidate.csv` |
+| 吉他最终微调脚本 | `scripts/adjust_clean_candidate_guitar_floor_v3.py` |
 | 单独摆放后的 controller | `outputs/renders/placed_assets/controller_placed.ply` |
 | 单独摆放后的 bottle | `outputs/renders/placed_assets/bottle_placed.ply` |
 | 单独摆放后的 guitar | `outputs/renders/placed_assets/guitar_placed.ply` |
 
-该版本先分别调整 controller / bottle / guitar 的 translation、rotation、scale，再与未移动的 `counter.ply` 背景合并。`counter.ply` 的高斯记录保持在融合文件前缀中，未做整体移动或归一化。
-
+该版本先分别调整 controller / bottle / guitar 的 translation、rotation、scale，再与未移动的 `counter.ply` 背景合并。经 SuperSplat 复查后，保留 controller 和 bottle 的 clean-candidate 位置，并将 guitar 单独下移到柜体/地面侧。`counter.ply` 的高斯记录保持在融合文件前缀中，未做整体移动或归一化。
