@@ -29,3 +29,19 @@
 Blender 预览布局另见 `asset_manifest_clear.csv`；该预览仅用于报告截图/视频，不代表原生 3DGS 渲染。
 
 渲染参数：Blender `4.5.1 LTS`，CPU Cycles，`1280 x 720`，36 个环绕视角，`12 fps` 合成 MP4。当前推荐提交统一高斯场景 `fused_scene_gaussian.ply` 作为格式统一结果；`flythrough_clear.mp4` 是 Blender 近似预览，B/C 被放大并置于前景。
+
+## Final Clean Gaussian Candidate
+
+After visual placement review, the recommended final 3DGS deliverable is:
+
+| 交付项 | 路径 |
+|---|---|
+| 最终融合高斯场景（压缩） | `outputs/renders/fused_scene_gaussian_clean_candidate.ply.gz` |
+| 俯视位置检查图 | `outputs/renders/fused_scene_gaussian_clean_candidate_topdown_check.png` |
+| 三个前景资产 transform 表 | `docs/transforms_clean_candidate.csv` |
+| 单独摆放后的 controller | `outputs/renders/placed_assets/controller_placed.ply` |
+| 单独摆放后的 bottle | `outputs/renders/placed_assets/bottle_placed.ply` |
+| 单独摆放后的 guitar | `outputs/renders/placed_assets/guitar_placed.ply` |
+
+该版本先分别调整 controller / bottle / guitar 的 translation、rotation、scale，再与未移动的 `counter.ply` 背景合并。`counter.ply` 的高斯记录保持在融合文件前缀中，未做整体移动或归一化。
+
