@@ -24,17 +24,23 @@ PROPS = [
 ]
 SH_C0 = 0.28209479177387814
 
+_MEMBER_B_ROOT = Path(__file__).resolve().parents[1]
+_DEFAULT_INPUT = (
+    _MEMBER_B_ROOT / "outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply"
+)
+_DEFAULT_OUTPUT_DIR = _MEMBER_B_ROOT / "outputs/renders/3dgs_flythrough_gsplat"
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--input",
-        default="homework/member_B/outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply",
+        default=str(_DEFAULT_INPUT),
         help="Input 3DGS binary PLY.",
     )
     parser.add_argument(
         "--output-dir",
-        default="homework/member_B/outputs/renders/3dgs_flythrough_gsplat",
+        default=str(_DEFAULT_OUTPUT_DIR),
         help="Directory for frames, MP4, and metadata.",
     )
     parser.add_argument("--width", type=int, default=1280)

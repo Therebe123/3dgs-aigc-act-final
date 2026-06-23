@@ -1,16 +1,26 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="/pfs/siqingyi/code/token_credit"
-THREESTUDIO="$ROOT/homework/member_B/repos/threestudio"
-LOG_DIR="$ROOT/homework/member_B/logs"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MEMBER_B_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_ROOT="$(cd "$MEMBER_B_ROOT/../.." && pwd)"
+
+THREESTUDIO="${THREESTUDIO:-$REPO_ROOT/external_repos/threestudio}"
+LOG_DIR="${LOG_DIR:-$MEMBER_B_ROOT/logs}"
+PYTHON="${PYTHON:-python}"
 MODEL_NAME="${MODEL_NAME:-Manojb/stable-diffusion-2-1-base}"
 
-mkdir -p "$LOG_DIR"
+if [[ ! -d "$THREESTUDIO" ]]; then
+  echo "threestudio not found at $THREESTUDIO" >&2
+  echo "Clone threestudio to external_repos/threestudio or set THREESTUDIO." >&2
+  exit 1
+fi
+
+mkdir -p "$LOG_DIR" "$MEMBER_B_ROOT/results/object_B_threestudio"
 cd "$THREESTUDIO"
 
-CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-7}" \
-/opt/conda/envs/hw3_3d_train/bin/python launch.py \
+CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}" \
+"$PYTHON" launch.py \
   --config configs/dreamfusion-sd.yaml \
   --train \
   --gpu 0 \
@@ -19,7 +29,7 @@ CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-7}" \
   system.prompt_processor.pretrained_model_name_or_path="$MODEL_NAME" \
   system.guidance.pretrained_model_name_or_path="$MODEL_NAME" \
   name=object_B_porcelain_vase_sd21 \
-  exp_root_dir="$ROOT/homework/member_B/results/object_B_threestudio" \
+  exp_root_dir="$MEMBER_B_ROOT/results/object_B_threestudio" \
   trainer.max_steps=10000 \
   trainer.val_check_interval=200 \
   data.batch_size=1 \

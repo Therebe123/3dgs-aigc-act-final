@@ -6,11 +6,14 @@ if [[ $# -lt 1 ]]; then
   exit 1
 fi
 
-ROOT="/pfs/siqingyi/code/token_credit"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MEMBER_B_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+PYTHON="${PYTHON:-python}"
+
 INPUT="$1"
-OUT_DIR="$ROOT/homework/member_B/assets/object_C"
+OUT_DIR="$MEMBER_B_ROOT/assets/object_C"
 mkdir -p "$OUT_DIR"
 cp "$INPUT" "$OUT_DIR/input.png"
-/opt/conda/envs/hw3_3d_train/bin/rembg i "$OUT_DIR/input.png" "$OUT_DIR/input_rgba.png"
+"$PYTHON" -m rembg i "$OUT_DIR/input.png" "$OUT_DIR/input_rgba.png"
 echo "Saved: $OUT_DIR/input.png"
 echo "Saved: $OUT_DIR/input_rgba.png"

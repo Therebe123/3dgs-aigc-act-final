@@ -49,12 +49,12 @@ Manojb/stable-diffusion-2-1-base
 
 | 交付项 | 路径 |
 |---|---|
-| 训练日志 | `homework/member_B/logs/object_B_train_v3_vase_sd21.log` |
-| 最终预览图 | `homework/member_B/assets/object_B/object_B_preview.png` |
-| 转台视频 | `homework/member_B/assets/object_B/object_B_turntable.mp4` |
-| 导出 OBJ | `homework/member_B/assets/object_B/object_B.obj` |
-| checkpoint | `homework/member_B/results/object_B_threestudio/object_B_porcelain_vase_sd21/a_single_small_blue_and_white_porcelain_vase,_one_smooth_rounded_body,_one_narrow_circular_opening,_glossy_ceramic_surface,_cobalt_floral_pattern,_centered_object,_symmetrical,_studio_lighting,_high_quality_3D_asset@20260621-155553/ckpts/last.ckpt` |
-| 完整输出目录 | `homework/member_B/results/object_B_threestudio/object_B_porcelain_vase_sd21/a_single_small_blue_and_white_porcelain_vase,_one_smooth_rounded_body,_one_narrow_circular_opening,_glossy_ceramic_surface,_cobalt_floral_pattern,_centered_object,_symmetrical,_studio_lighting,_high_quality_3D_asset@20260621-155553` |
+| 训练日志 | `task1_3dgs_aigc/member_B/logs/object_B_train_v3_vase_sd21.log` |
+| 最终预览图 | `task1_3dgs_aigc/member_B/assets/object_B/object_B_preview.png` |
+| 转台视频 | `task1_3dgs_aigc/member_B/assets/object_B/object_B_turntable.mp4` |
+| 导出 OBJ | `task1_3dgs_aigc/member_B/assets/object_B/object_B.obj` |
+| checkpoint | `task1_3dgs_aigc/member_B/results/object_B_threestudio/object_B_porcelain_vase_sd21/a_single_small_blue_and_white_porcelain_vase,_one_smooth_rounded_body,_one_narrow_circular_opening,_glossy_ceramic_surface,_cobalt_floral_pattern,_centered_object,_symmetrical,_studio_lighting,_high_quality_3D_asset@20260621-155553/ckpts/last.ckpt` |
+| 完整输出目录 | `task1_3dgs_aigc/member_B/results/object_B_threestudio/object_B_porcelain_vase_sd21/a_single_small_blue_and_white_porcelain_vase,_one_smooth_rounded_body,_one_narrow_circular_opening,_glossy_ceramic_surface,_cobalt_floral_pattern,_centered_object,_symmetrical,_studio_lighting,_high_quality_3D_asset@20260621-155553` |
 
 日志显示训练正常达到 `max_steps=10000`，并完成 120 帧 test 视角渲染。导出阶段使用 mesh exporter 生成 `model.obj`，随后复制到稳定交付路径 `assets/object_B/object_B.obj`。
 
@@ -69,15 +69,15 @@ Manojb/stable-diffusion-2-1-base
 物体 C 使用单张真实图片作为输入，主体为吉他。原始图片位于：
 
 ```text
-homework/4b8b74189c87fd94e5d75faacb5f4a42.jpg
+task1_3dgs_aigc/member_B/assets/object_C/input.png
 ```
 
 为避免沙发、抱枕和室内背景影响单图生成，先将原图复制为交付输入图，再使用手动去背景结果作为主体图。用户手动清理后的图片为 `image.png`，随后将其转换为真正带 alpha 通道的透明 PNG，用作 Stable-Zero123 训练输入：
 
 ```text
-homework/member_B/assets/object_C/input.png
-homework/member_B/assets/object_C/image.png
-homework/member_B/assets/object_C/input_rgba.png
+task1_3dgs_aigc/member_B/assets/object_C/input.png
+task1_3dgs_aigc/member_B/assets/object_C/image.png
+task1_3dgs_aigc/member_B/assets/object_C/input_rgba.png
 ```
 
 其中 `input_rgba.png` 是实际传入 `data.image_path` 的图片，保留吉他主体并使用透明背景，图像模式为 RGBA。
@@ -93,7 +93,7 @@ stabilityai/stable-zero123
 本地 checkpoint 路径：
 
 ```text
-homework/member_B/repos/threestudio/load/zero123/stable_zero123.ckpt
+task1_3dgs_aigc/member_B/repos/threestudio/load/zero123/stable_zero123.ckpt
 ```
 
 训练设置：
@@ -101,7 +101,7 @@ homework/member_B/repos/threestudio/load/zero123/stable_zero123.ckpt
 | 参数 | 值 |
 |---|---|
 | 配置 | `configs/stable-zero123.yaml` |
-| 输入图 | `homework/member_B/assets/object_C/input_rgba.png` |
+| 输入图 | `task1_3dgs_aigc/member_B/assets/object_C/input_rgba.png` |
 | 训练步数 | `600` |
 | GPU | `CUDA_VISIBLE_DEVICES=7` |
 | validation interval | `100` |
@@ -111,20 +111,20 @@ homework/member_B/repos/threestudio/load/zero123/stable_zero123.ckpt
 
 | 交付项 | 路径 |
 |---|---|
-| 原始输入图 | `homework/member_B/assets/object_C/input.png` |
-| 去背景图 | `homework/member_B/assets/object_C/input_rgba.png` |
-| 训练日志 | `homework/member_B/logs/object_C_zero123_train.log` |
-| 最终预览图 | `homework/member_B/assets/object_C/object_C_preview.png` |
-| 多视角转台视频 | `homework/member_B/assets/object_C/object_C_turntable.mp4` |
-| validation 视频 | `homework/member_B/assets/object_C/object_C_final_val.mp4` |
-| checkpoint | `homework/member_B/results/object_C_zero123/object_C_guitar_stable_zero123/[64, 128, 256]_input_rgba.png@20260621-171641/ckpts/epoch=0-step=600.ckpt` |
-| 完整输出目录 | `homework/member_B/results/object_C_zero123/object_C_guitar_stable_zero123/[64, 128, 256]_input_rgba.png@20260621-171641` |
+| 原始输入图 | `task1_3dgs_aigc/member_B/assets/object_C/input.png` |
+| 去背景图 | `task1_3dgs_aigc/member_B/assets/object_C/input_rgba.png` |
+| 训练日志 | `task1_3dgs_aigc/member_B/logs/object_C_zero123_train.log` |
+| 最终预览图 | `task1_3dgs_aigc/member_B/assets/object_C/object_C_preview.png` |
+| 多视角转台视频 | `task1_3dgs_aigc/member_B/assets/object_C/object_C_turntable.mp4` |
+| validation 视频 | `task1_3dgs_aigc/member_B/assets/object_C/object_C_final_val.mp4` |
+| checkpoint | `task1_3dgs_aigc/member_B/results/object_C_zero123/object_C_guitar_stable_zero123/[64, 128, 256]_input_rgba.png@20260621-171641/ckpts/epoch=0-step=600.ckpt` |
+| 完整输出目录 | `task1_3dgs_aigc/member_B/results/object_C_zero123/object_C_guitar_stable_zero123/[64, 128, 256]_input_rgba.png@20260621-171641` |
 
 日志显示训练正常达到 `max_steps=600`，并完成 120 帧 test 视角渲染。最终的 `it600-test.mp4` 已复制为稳定交付路径 `assets/object_C/object_C_turntable.mp4`，并从中抽取一帧作为 `object_C_preview.png`。
 
 ### 3.3 结果观察
 
-单图生成能较好保留输入图中吉他的主体类别、颜色和正面轮廓；相比直接从文本生成，输入图对主体身份约束更强。但由于只有一张图片，侧面和背面仍由模型先验补全，可能出现不可见区域纹理不稳定、厚度估计不准确或轮廓局部拉伸等问题。当前结果可作为题目一中“使用 Zero123 生成物体 C”的交付，包括输入图、去背景图、生成模型、结果图和训练日志。当前已在此 checkpoint 基础上执行 mesh export，并整理为 `homework/member_B/assets/object_C/object_C.obj`，用于最终融合场景。
+单图生成能较好保留输入图中吉他的主体类别、颜色和正面轮廓；相比直接从文本生成，输入图对主体身份约束更强。但由于只有一张图片，侧面和背面仍由模型先验补全，可能出现不可见区域纹理不稳定、厚度估计不准确或轮廓局部拉伸等问题。当前结果可作为题目一中“使用 Zero123 生成物体 C”的交付，包括输入图、去背景图、生成模型、结果图和训练日志。当前已在此 checkpoint 基础上执行 mesh export，并整理为 `task1_3dgs_aigc/member_B/assets/object_C/object_C.obj`，用于最终融合场景。
 
 ## 4. 资产格式统一
 
@@ -176,13 +176,12 @@ homework/member_B/repos/threestudio/load/zero123/stable_zero123.ckpt
 | 视频帧率 | `12 fps` |
 | 输出格式 | PNG 序列 + MP4 |
 
-## 7. 三种资产生成方式对比
+## 7. 资产生成方式对比（B/C）
 
-按小组分工，本节只填写组员 B 负责的物体 B 和物体 C；物体 A 的方法对比留空，由对应组员补充。
+物体 A（真实多视角重建）的方法对比见最终实验报告正文。本节仅记录组员 B 负责的物体 B 和物体 C。
 
 | 方法 | 输入 | 几何准确度 | 纹理细节 | 计算耗时 | 优点 | 局限 |
 |---|---|---|---|---:|---|---|
-| 真实物体 A： |  |  |  |  |  |  |
 | 物体 B：文本 + threestudio Stable DreamFusion/SD2.1 | 文本 Prompt | 中，花瓶整体轮廓较稳定但表面仍可能有 SDS 伪影 | 中，青花瓷风格可见但纹理细节需检查 | 约 32 分钟 | 不需要真实物体，创作自由度高 | 多视角一致性和几何稳定性弱于真实重建 |
 | 物体 C：单图 + Stable-Zero123 | 单张去背景吉他图片 | 中高，正面形状较准，背面依赖补全 | 中高，正面纹理保留较好，侧背面可能拉伸 | 约 3 分钟，权重下载另计 | 输入成本低，贴近真实图片 | 不可见区域容易出现纹理拉伸或语义错误 |
 

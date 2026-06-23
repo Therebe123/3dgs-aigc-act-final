@@ -1,8 +1,8 @@
 {
-  "input": "/pfs/siqingyi/code/token_credit/homework/member_B/outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply",
-  "video": "/pfs/siqingyi/code/token_credit/homework/member_B/outputs/renders/3dgs_flythrough_gsplat_12s_camera_limited/fused_scene_gaussian_clean_candidate_guitar_floor_v3_gsplat_flythrough.mp4",
-  "frames_dir": "/pfs/siqingyi/code/token_credit/homework/member_B/outputs/renders/3dgs_flythrough_gsplat_12s_camera_limited/frames",
-  "topdown_check": "/pfs/siqingyi/code/token_credit/homework/member_B/outputs/renders/3dgs_flythrough_gsplat_12s_camera_limited/topdown_check.png",
+  "input": "task1_3dgs_aigc/member_B/outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply",
+  "video": "task1_3dgs_aigc/member_B/outputs/renders/3dgs_flythrough_gsplat_12s_camera_limited/fused_scene_gaussian_clean_candidate_guitar_floor_v3_gsplat_flythrough.mp4",
+  "frames_dir": "task1_3dgs_aigc/member_B/outputs/renders/3dgs_flythrough_gsplat_12s_camera_limited/frames",
+  "topdown_check": "task1_3dgs_aigc/member_B/outputs/renders/3dgs_flythrough_gsplat_12s_camera_limited/topdown_check.png",
   "renderer": "gsplat 1.5.3 CUDA rasterization, DC color from 3DGS SH coefficients",
   "selected_gaussians": 591945,
   "total_gaussians": 625058,

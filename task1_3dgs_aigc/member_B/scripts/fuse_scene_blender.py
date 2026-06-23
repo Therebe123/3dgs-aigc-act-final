@@ -7,9 +7,9 @@ This script supports two asset classes used in the final homework package:
 - Mesh files such as OBJ/GLB/PLY/FBX.
 
 Run with:
-  blender --background --python homework/member_B/scripts/fuse_scene_blender.py -- \
-    --manifest homework/member_B/asset_manifest_clear.csv \
-    --output-dir homework/member_B/renders/fusion_scene \
+  blender --background --python task1_3dgs_aigc/member_B/scripts/fuse_scene_blender.py -- \
+    --manifest task1_3dgs_aigc/member_B/docs/asset_manifest_clear.csv \
+    --output-dir task1_3dgs_aigc/member_B/outputs/renders/fusion_scene \
     --resolution 1280 720 \
     --views 36
 """

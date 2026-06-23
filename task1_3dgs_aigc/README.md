@@ -13,22 +13,15 @@ Generate and reconstruct three 3D assets with different technical routes, recons
 | Object C | Single image + Zero123 | Generated 3D asset |
 | Background | Open-source scene + 3DGS | 3DGS background model |
 
-## Directory Usage
+## Members
 
-```text
-configs/   Configuration files.
-data/      Local data paths or data preparation notes.
-scripts/   Runnable scripts for reconstruction, generation, fusion, and rendering.
-assets/    Exported 3D assets such as mesh, point cloud, or gaussian files.
-outputs/   Rendered images, videos, logs, and visualizations.
-docs/      Notes for methods, parameters, and experiment records.
-```
+| Member | Folder | Responsibility |
+|---|---|---|
+| A | `member_A/` | Real capture, COLMAP, Splatfacto reconstruction |
+| B | `member_B/` | AIGC Object B/C, format unification, scene fusion |
 
-## Key Results to Record
+Member A exports `controller2.ply` and `counter.ply` for Member B fusion. Large files: [Google Drive](https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link) (`题目一`) — see [`docs/cloud_storage.md`](../docs/cloud_storage.md).
 
-- Geometry quality.
-- Texture quality.
-- Runtime and hardware usage.
-- Asset representation and fusion method.
-- Final multi-view rendering video.
+## Scripts
 
+Task-level scripts under `scripts/` wrap member B training and fusion entry points.
