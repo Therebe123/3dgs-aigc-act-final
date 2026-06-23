@@ -34,7 +34,7 @@ Details: `member_C/docs/final_full_results.md`, `member_C/artifacts/final_full_a
 
 ## Model Weights
 
-See [`docs/cloud_storage.md`](../docs/cloud_storage.md) and `member_C/docs/asset_manifest.csv`.
+See [Google Drive](https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link) (`题目二`) and `member_C/docs/asset_manifest.csv`.
 
 ## Quick Start
 

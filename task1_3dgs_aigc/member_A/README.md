@@ -28,7 +28,7 @@
 
 ## 网盘
 
-大文件见 [Google Drive](https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link)（`题目一`），清单：[`docs/cloud_storage.md`](../../../docs/cloud_storage.md)。
+大文件见 [Google Drive](https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link)（`题目一`），资产清单见 `docs/asset_manifest.csv`。
 
 ## 复现
 

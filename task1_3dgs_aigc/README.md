@@ -20,7 +20,7 @@ Generate and reconstruct three 3D assets with different technical routes, recons
 | A | `member_A/` | Real capture, COLMAP, Splatfacto reconstruction |
 | B | `member_B/` | AIGC Object B/C, format unification, scene fusion |
 
-Member A exports `controller2.ply` and `counter.ply` for Member B fusion. Large files: [Google Drive](https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link) (`题目一`) — see [`docs/cloud_storage.md`](../docs/cloud_storage.md).
+Member A exports `controller2.ply` and `counter.ply` for Member B fusion. Large files: [Google Drive](https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link) (`题目一`).
 
 ## Scripts
 

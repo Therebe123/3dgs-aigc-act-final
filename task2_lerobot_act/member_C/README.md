@@ -57,7 +57,7 @@ python compile_final_full_results.py
 
 ## 模型权重
 
-见 [Google Drive](https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link)（`题目二`）或 [`docs/cloud_storage.md`](../../../docs/cloud_storage.md)。
+见 [Google Drive](https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link)（`题目二`）。
 
 | 文件 | 说明 |
 |---|---|

@@ -6,7 +6,6 @@
 |---|---|
 | GitHub | https://github.com/Therebe123/3dgs-aigc-act-final |
 | Google Drive | https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link |
-| 网盘清单 | [`docs/cloud_storage.md`](docs/cloud_storage.md) |
 
 ## 组员分工
 
@@ -25,7 +24,7 @@ git clone https://github.com/Therebe123/3dgs-aigc-act-final.git
 cd 3dgs-aigc-act-final
 ```
 
-1. 按 [`docs/cloud_storage.md`](docs/cloud_storage.md) 从 Google Drive 下载大文件。
+1. 从 [Google Drive](https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link) 下载大文件（`题目一`：PLY/checkpoint；`题目二`：ACT 权重）。
 2. 按任务进入对应 member 目录配置环境（见下方「环境说明」）。
 3. 题目一：[`task1_3dgs_aigc/README.md`](task1_3dgs_aigc/README.md)；题目二：[`task2_lerobot_act/README.md`](task2_lerobot_act/README.md)。
 
@@ -33,7 +32,6 @@ cd 3dgs-aigc-act-final
 
 ```text
 .
-├── docs/cloud_storage.md
 ├── task1_3dgs_aigc/
 │   ├── member_A/          # 真实重建
 │   ├── member_B/          # AIGC 与融合
@@ -46,17 +44,6 @@ cd 3dgs-aigc-act-final
 ```
 
 Member A 训练脚本默认将 checkpoint 写入仓库根目录 `outputs/`。
-
-## 网盘概览
-
-| Drive 子目录 | 内容 |
-|---|---|
-| `题目一` | PLY、checkpoint、原始图、COLMAP 等 |
-| `题目二` | ACT 权重 `act_splitA_full_best.pt`、`act_jointABC_full_best.pt` |
-
-详细文件名见 [`member_A/docs/cloud_storage_manifest.csv`](task1_3dgs_aigc/member_A/docs/cloud_storage_manifest.csv) 与 [`member_C/docs/asset_manifest.csv`](task2_lerobot_act/member_C/docs/asset_manifest.csv)。
-
-Member A 向 Member B 提供 `controller2.ply`、`counter.ply`，见 [`member_A/docs/asset_manifest.csv`](task1_3dgs_aigc/member_A/docs/asset_manifest.csv)。
 
 ## 复现命令
 

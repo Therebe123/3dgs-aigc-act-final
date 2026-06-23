@@ -6,7 +6,7 @@
 |---|---|
 | Object | Game controller (物体 A) |
 | Image path (in repo) | `data/object_A_controller/images/` |
-| Raw archive | Google Drive `题目一` (see `cloud_storage.md`) |
+| Raw archive | Google Drive `题目一` |
 | Selected image count | 120 |
 | Phone/camera | Xiaomi 15 |
 | Lighting | 室内灯光 |
