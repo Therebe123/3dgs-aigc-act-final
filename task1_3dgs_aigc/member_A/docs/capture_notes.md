@@ -56,7 +56,7 @@ data/object_A_controller/
 | Dataset | Mip-NeRF 360 counter |
 | Data path | `data/background_scene/mipnerf360/counter` |
 | Output dir | `outputs/background_scene/counter_splatfacto` |
-| GPU | NVIDIA A10 80GB |
+| GPU | NVIDIA A100 80GB |
 | Training time | 35 分 27 秒 |
 | Export PLY | `counter.ply`（413019 Gaussians，交付组员 B） |
 | Guide | `background_counter_3dgs_guide.md` |
