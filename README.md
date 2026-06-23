@@ -1,104 +1,103 @@
 # 3DGS-AIGC-ACT Final Project
 
-Final project for **Deep Learning and Spatial Intelligence**.
+**Deep Learning and Spatial Intelligence** — 期末小组项目。
 
-This repository contains two tasks:
+| 链接 | URL |
+|---|---|
+| GitHub | https://github.com/Therebe123/3dgs-aigc-act-final |
+| Google Drive | https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link |
+| 网盘清单 | [`docs/cloud_storage.md`](docs/cloud_storage.md) |
 
-- **Task 1:** 3DGS and AIGC based 3D asset generation, reconstruction, fusion, and rendering.
-- **Task 2:** LeRobot ACT policy training and zero-shot cross-environment evaluation.
+## 组员分工
 
-## Main Folders
+| 组员 | 姓名 | 学号 | 职责 | 目录 |
+|:---:|---|---:|---|---|
+| A | 邓捷比 | 25210980029 | 题目一真实重建 | [`task1_3dgs_aigc/member_A/`](task1_3dgs_aigc/member_A/README.md) |
+| B | 谢佳杭 | 25210980118 | 题目一 AIGC 与融合 | [`task1_3dgs_aigc/member_B/`](task1_3dgs_aigc/member_B/README.md) |
+| C | 李浩然 | 25210980063 | 题目二 ACT 实验 | [`task2_lerobot_act/member_C/`](task2_lerobot_act/member_C/README.md) |
+
+实验报告材料见 [`reports/README.md`](reports/README.md)。
+
+## 快速开始
+
+```bash
+git clone https://github.com/Therebe123/3dgs-aigc-act-final.git
+cd 3dgs-aigc-act-final
+```
+
+1. 按 [`docs/cloud_storage.md`](docs/cloud_storage.md) 从 Google Drive 下载大文件。
+2. 按任务进入对应 member 目录配置环境（见下方「环境说明」）。
+3. 题目一：[`task1_3dgs_aigc/README.md`](task1_3dgs_aigc/README.md)；题目二：[`task2_lerobot_act/README.md`](task2_lerobot_act/README.md)。
+
+## 仓库结构
 
 ```text
 .
-|-- README.md              Project overview and runnable entry points.
-|-- requirements.txt       Python package requirements.
-|-- environment.yml        Conda environment template.
-|-- task1_3dgs_aigc/       Task 1: 3DGS reconstruction, AIGC assets, and scene fusion.
-|-- task2_lerobot_act/     Task 2: LeRobot ACT training and evaluation.
-|-- reports/               Final report materials and exported figures.
-`-- external_repos/        Optional external source repositories, such as 3DGS or LeRobot.
+├── docs/cloud_storage.md
+├── task1_3dgs_aigc/
+│   ├── member_A/          # 真实重建
+│   ├── member_B/          # AIGC 与融合
+│   └── scripts/
+├── task2_lerobot_act/
+│   ├── member_C/          # ACT 实验
+│   └── scripts/
+├── reports/
+└── external_repos/        # threestudio 等第三方源码
 ```
 
-Large datasets, checkpoints, rendered videos, and logs should not be committed directly. Put download links or preparation notes in the corresponding task folder.
+Member A 训练脚本默认将 checkpoint 写入仓库根目录 `outputs/`。
 
-Current checked-in work focuses on **Task 1 / member B**: text-to-3D Object B, single-image-to-3D Object C, representation conversion, and Gaussian scene fusion.
+## 网盘概览
 
-## Environment
+| Drive 子目录 | 内容 |
+|---|---|
+| `题目一` | PLY、checkpoint、原始图、COLMAP 等 |
+| `题目二` | ACT 权重 `act_splitA_full_best.pt`、`act_jointABC_full_best.pt` |
+
+详细文件名见 [`member_A/docs/cloud_storage_manifest.csv`](task1_3dgs_aigc/member_A/docs/cloud_storage_manifest.csv) 与 [`member_C/docs/asset_manifest.csv`](task2_lerobot_act/member_C/docs/asset_manifest.csv)。
+
+Member A 向 Member B 提供 `controller2.ply`、`counter.ply`，见 [`member_A/docs/asset_manifest.csv`](task1_3dgs_aigc/member_A/docs/asset_manifest.csv)。
+
+## 复现命令
+
+### 题目一 / Member A
 
 ```bash
-conda env create -f environment.yml
-conda activate spatial-final
-pip install -r requirements.txt
+task1_3dgs_aigc/member_A/scripts/train_object_A_splatfacto_windows.bat   # Windows
+bash task1_3dgs_aigc/member_A/scripts/train_object_A_splatfacto_linux.sh
+bash task1_3dgs_aigc/member_A/scripts/train_background_counter_splatfacto_linux.sh
 ```
 
-The final environment may be split by task if 3DGS, threestudio, Zero123, and LeRobot require incompatible dependencies. Member B's actual training was run on the server environment documented in `task1_3dgs_aigc/member_B/docs/runbook.md`:
+Runbook：[`member_A/docs/runbook.md`](task1_3dgs_aigc/member_A/docs/runbook.md)
 
-- Python/conda env: `/opt/conda/envs/hw3_3d_train`
-- External framework: `threestudio`
-- Object B diffusion model: `Manojb/stable-diffusion-2-1-base`
-- Object C checkpoint: `stabilityai/stable-zero123`
-- Fusion preview tool: Blender `4.5.1 LTS`
-
-## Data
-
-### Task 1
-
-Suggested local data layout:
-
-```text
-task1_3dgs_aigc/data/object_a/      # multi-view images or video
-task1_3dgs_aigc/data/object_c/      # single input image
-task1_3dgs_aigc/data/background/    # open-source background scene
-```
-
-Member B's prepared inputs, scripts, outputs, and method notes are under:
-
-```text
-task1_3dgs_aigc/member_B/
-|-- scripts/       Runnable training, conversion, and fusion scripts.
-|-- assets/        Lightweight preview inputs and images.
-|-- outputs/       Compressed fused Gaussian scenes and preview figures.
-`-- docs/          Runbook, method notes, manifests, and report text.
-```
-
-### Task 2
-
-Use the provided CALVIN-LeRobot dataset:
-
-https://huggingface.co/datasets/xiaoma26/calvin-lerobot/tree/main
-
-Suggested local data layout:
-
-```text
-task2_lerobot_act/data/splitA/
-task2_lerobot_act/data/splitB/
-task2_lerobot_act/data/splitC/
-task2_lerobot_act/data/splitD/
-```
-
-## Commands
-
-### Task 1 / Member B Train
+### 题目一 / Member B
 
 ```bash
 bash task1_3dgs_aigc/scripts/generate_object_b_text_to_3d.sh
 bash task1_3dgs_aigc/scripts/generate_object_c_image_to_3d.sh
+bash task1_3dgs_aigc/scripts/render_fused_scene.sh
 ```
 
-### Task 1 / Member B Test And Fusion
+融合交付：[`member_B/docs/fusion_deliverables.md`](task1_3dgs_aigc/member_B/docs/fusion_deliverables.md)
 
 ```bash
-bash task1_3dgs_aigc/scripts/render_fused_scene.sh
 gzip -d -k task1_3dgs_aigc/member_B/outputs/renders/fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply.gz
 ```
 
-Open the decompressed `fused_scene_gaussian_clean_candidate_guitar_floor_v3.ply` in SuperSplat or another 3DGS-compatible viewer for visual inspection. See `task1_3dgs_aigc/member_B/outputs/README.md` and `task1_3dgs_aigc/member_B/docs/fusion_deliverables.md` for the final deliverable list.
+### 题目二 / Member C
 
-Task 1 Object A and background reconstruction are provided by the teammate responsible for real 3DGS reconstruction; member B consumes their Gaussian PLY assets for fusion.
+```bash
+bash task2_lerobot_act/scripts/download_data.sh
+bash task2_lerobot_act/scripts/train_act.sh
+bash task2_lerobot_act/scripts/eval_act.sh
+```
 
-## Expected Outputs
+评估前从 Drive `题目二` 下载权重至 `task2_lerobot_act/member_C/weights/`。详见 [`member_C/README.md`](task2_lerobot_act/member_C/README.md)。
 
-- Task 1 / member B: generated B/C assets, Gaussian conversion scripts, final compressed fused scene, placement checks, rendered preview images, and method notes.
-- Task 2: ACT checkpoints, training curves, zero-shot metrics on `splitD`, and comparison tables.
-- Final report: method descriptions, visualizations, hyperparameters, metrics, GitHub link, and weight download links.
+## 环境说明
+
+| 组员 | 环境 | 文档 |
+|---|---|---|
+| A | `nerfstudio_gs` | [`member_A/docs/environment.md`](task1_3dgs_aigc/member_A/docs/environment.md) |
+| B | `hw3_3d_train` + threestudio | [`member_B/docs/runbook.md`](task1_3dgs_aigc/member_B/docs/runbook.md) |
+| C | venv / conda | [`member_C/README.md`](task2_lerobot_act/member_C/README.md) |
