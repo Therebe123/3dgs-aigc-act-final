@@ -1,0 +1,3 @@
+asset,description,repo_path,cloud_link,status
+act_splitA_full_best.pt,ACT-A best checkpoint on full splitA,weights/act_splitA_full_best.pt,https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link,uploaded
+act_jointABC_full_best.pt,ACT-ABC best checkpoint on splitA+splitB+splitC,weights/act_jointABC_full_best.pt,https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link,uploaded

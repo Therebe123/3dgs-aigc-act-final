@@ -1,0 +1,11 @@
+{
+  "action_l1": 0.15891841375166596,
+  "action_mse": 0.09074155892301293,
+  "num_action_values": 16295104,
+  "checkpoint": "outputs/final_act_splitA_full/checkpoints/best.pt",
+  "splits": [
+    "splitD"
+  ],
+  "frames": 308918,
+  "episodes": 5124
+}

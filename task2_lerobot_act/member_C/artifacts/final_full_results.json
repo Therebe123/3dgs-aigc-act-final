@@ -1,0 +1,30 @@
+[
+  {
+    "model": "ACT-A",
+    "train_split": "splitA",
+    "train_episodes": 6089,
+    "test_episodes": 5124,
+    "final_train_loss": 0.6721364259719849,
+    "final_train_l1": 0.6719620227813721,
+    "best_val_l1": 0.1548188711329268,
+    "splitD_action_l1": 0.15891841375166596,
+    "splitD_action_mse": 0.09074155892301293,
+    "splitD_frames": 308918,
+    "splitD_episodes": 5124,
+    "checkpoint": "outputs/final_act_splitA_full/checkpoints/best.pt"
+  },
+  {
+    "model": "ACT-ABC",
+    "train_split": "splitA+splitB+splitC",
+    "train_episodes": 17870,
+    "test_episodes": 5124,
+    "final_train_loss": 0.4652778208255768,
+    "final_train_l1": 0.4650139212608337,
+    "best_val_l1": 0.1576301033503424,
+    "splitD_action_l1": 0.15622121500221614,
+    "splitD_action_mse": 0.09020541159081488,
+    "splitD_frames": 308918,
+    "splitD_episodes": 5124,
+    "checkpoint": "outputs/final_act_jointABC_full/checkpoints/best.pt"
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "repo_id": "xiaoma26/calvin-lerobot",
+  "revision": "02968bdb6d8aba141f7e277e06d2a172e93a10b5",
+  "remote": {
+    "splitA": {
+      "files": 6095,
+      "size_gb": 16.404,
+      "types": {
+        "parquet": 6089,
+        "json": 6
+      }
+    },
+    "splitB": {
+      "files": 6121,
+      "size_gb": 18.056,
+      "types": {
+        "parquet": 6115,
+        "json": 6
+      }
+    },
+    "splitC": {
+      "files": 5672,
+      "size_gb": 16.638,
+      "types": {
+        "parquet": 5666,
+        "json": 6
+      }
+    },
+    "splitD": {
+      "files": 5130,
+      "size_gb": 14.003,
+      "types": {
+        "parquet": 5124,
+        "json": 6
+      }
+    }
+  },
+  "local": [
+    {
+      "split": "splitA",
+      "available": true,
+      "scene": "A",
+      "episodes_meta": 6089,
+      "frames_meta": 366693,
+      "local_parquet_files": 6089,
+      "fps": 10
+    },
+    {
+      "split": "splitB",
+      "available": true,
+      "scene": "B",
+      "episodes_meta": 6115,
+      "frames_meta": 367096,
+      "local_parquet_files": 6115,
+      "fps": 10
+    },
+    {
+      "split": "splitC",
+      "available": true,
+      "scene": "C",
+      "episodes_meta": 5666,
+      "frames_meta": 337954,
+      "local_parquet_files": 5666,
+      "fps": 10
+    },
+    {
+      "split": "splitD",
+      "available": true,
+      "scene": "D",
+      "episodes_meta": 5124,
+      "frames_meta": 308918,
+      "local_parquet_files": 5124,
+      "fps": 10
+    }
+  ]
+}

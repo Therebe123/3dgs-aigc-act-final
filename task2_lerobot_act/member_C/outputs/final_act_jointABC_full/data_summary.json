@@ -1,0 +1,31 @@
+{
+  "splits": [
+    {
+      "split": "splitA",
+      "available": true,
+      "scene": "A",
+      "episodes_meta": 6089,
+      "frames_meta": 366693,
+      "local_parquet_files": 6089,
+      "fps": 10
+    },
+    {
+      "split": "splitB",
+      "available": true,
+      "scene": "B",
+      "episodes_meta": 6115,
+      "frames_meta": 367096,
+      "local_parquet_files": 6115,
+      "fps": 10
+    },
+    {
+      "split": "splitC",
+      "available": true,
+      "scene": "C",
+      "episodes_meta": 5666,
+      "frames_meta": 337954,
+      "local_parquet_files": 5666,
+      "fps": 10
+    }
+  ]
+}

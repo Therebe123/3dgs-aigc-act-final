@@ -1,0 +1,11 @@
+{
+  "action_l1": 0.15622121500221614,
+  "action_mse": 0.09020541159081488,
+  "num_action_values": 16295104,
+  "checkpoint": "outputs/final_act_jointABC_full/checkpoints/best.pt",
+  "splits": [
+    "splitD"
+  ],
+  "frames": 308918,
+  "episodes": 5124
+}

@@ -1,0 +1,13 @@
+{
+  "splits": [
+    {
+      "split": "splitA",
+      "available": true,
+      "scene": "A",
+      "episodes_meta": 6089,
+      "frames_meta": 366693,
+      "local_parquet_files": 6089,
+      "fps": 10
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+run_name: final_act_jointABC_full
+data_root: data/calvin_lerobot
+splits: [splitA, splitB, splitC]
+val_splits: [splitD]
+output_dir: outputs
+seed: 42
+batch_size: 8
+num_workers: 2
+epochs: 10
+max_steps: 15000
+max_frames:
+sample_stride: 1
+stats_samples: 8192
+eval_every: 1000
+eval_batches: 120
+save_every: 3000
+device: cuda
+use_amp: false
+grad_clip_norm: 1.0
+image_size: 64
+chunk_size: 8
+use_wrist_image: true
+dim_model: 128
+n_heads: 4
+dim_feedforward: 512
+n_encoder_layers: 1
+n_decoder_layers: 1
+n_vae_encoder_layers: 1
+learning_rate: 0.00001
+weight_decay: 0.0001
+pretrained_backbone_weights:
