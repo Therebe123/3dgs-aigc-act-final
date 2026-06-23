@@ -10,6 +10,9 @@ env/
 *.egg-info/
 
 # Large local data and outputs
+data/*
+outputs/*
+external_repos/*
 task1_3dgs_aigc/data/*
 task1_3dgs_aigc/outputs/*
 task1_3dgs_aigc/assets/*
@@ -37,6 +40,8 @@ wandb/
 runs/
 logs/
 *.log
+!task1_3dgs_aigc/member_A/outputs/logs/
+!task1_3dgs_aigc/member_A/outputs/logs/*.log
 
 # OS and editor
 .DS_Store
@@ -44,3 +49,25 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Member C lightweight deliverables
+!task2_lerobot_act/member_C/
+!task2_lerobot_act/member_C/**
+!task2_lerobot_act/member_C/artifacts/*.png
+!task2_lerobot_act/member_C/artifacts/*.json
+!task2_lerobot_act/member_C/outputs/**/eval_splitD.json
+!task2_lerobot_act/member_C/outputs/**/data_summary.json
+!task2_lerobot_act/member_C/outputs/**/run_config.json
+!task2_lerobot_act/member_C/outputs/**/loss_curve.png
+task2_lerobot_act/member_C/outputs/**/train_metrics.csv
+task2_lerobot_act/member_C/data/*
+!task2_lerobot_act/member_C/data/README.md
+task2_lerobot_act/member_C/.venv/
+!task1_3dgs_aigc/member_A/
+!task1_3dgs_aigc/member_A/**
+!task1_3dgs_aigc/member_B/
+!task1_3dgs_aigc/member_B/**
+!task1_3dgs_aigc/member_A/outputs/configs/
+!task1_3dgs_aigc/member_A/outputs/configs/**
+!task1_3dgs_aigc/member_A/assets/
+!task1_3dgs_aigc/member_A/assets/**
+!task1_3dgs_aigc/member_A/assets/*.png

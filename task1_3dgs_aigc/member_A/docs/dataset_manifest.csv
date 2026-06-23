@@ -1,0 +1,3 @@
+item,source_path,image_count,colmap_registered,training_method,iterations,gpu,training_time,notes
+object_A_controller,data/object_A_controller/,120,118,Nerfstudio Splatfacto,30000,NVIDIA A100 80GB,21 min 37 sec,Captured with Xiaomi 15; indoor lighting; room background
+background_counter,data/background_scene/mipnerf360/counter/,N/A (dataset),N/A (precomputed COLMAP),Nerfstudio Splatfacto,30000,NVIDIA A10 80GB,35 min 27 sec,Exported counter.ply has 413019 Gaussians per member_B docs

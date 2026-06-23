@@ -1,0 +1,10 @@
+asset,format,gaussian_count,repo_path,member_B_path,cloud_link,status
+controller2.ply,3DGS Gaussian PLY,28039,outputs/object_A_controller/exports/controller_gaussian_splat/controller2.ply,task1_3dgs_aigc/member_B/assets/object_A/controller2.ply,https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link,uploaded
+counter.ply,3DGS Gaussian PLY,413019,outputs/background_scene/exports/counter_gaussian_splat/counter.ply,task1_3dgs_aigc/member_B/assets/background/counter.ply,https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link,uploaded
+object_A_checkpoint,nerfstudio .ckpt,step-000029999,outputs/object_A_controller/nerfstudio_splatfacto/controller/splatfacto/*/nerfstudio_models/step-000029999.ckpt,N/A,https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link,uploaded
+background_checkpoint,nerfstudio .ckpt,step-000029999,outputs/background_scene/counter_splatfacto/counter/splatfacto/*/nerfstudio_models/step-000029999.ckpt,N/A,https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link,uploaded
+fusion_asset_zip,zip,N/A,outputs/object_A_controller/exports/controller_gaussian_splat/member_A_object_A_background_assets.zip,N/A,https://drive.google.com/drive/folders/1zq4sE9CjMhWjk5RhR1OpKe3YlPzJxqpP?usp=drive_link,uploaded
+splatfacto_config,config.yml,N/A,member_A/outputs/configs/splatfacto_controller_2026-06-19/config.yml,N/A,in_git,archived
+splatfacto_dataparser_transforms,json,N/A,member_A/outputs/configs/splatfacto_controller_2026-06-19/dataparser_transforms.json,N/A,in_git,archived
+object_A_preview.png,preview image,N/A,member_A/assets/object_A_preview.png,N/A,in_git,committed
+counter_preview.png,preview image,N/A,member_A/assets/counter_preview.png,N/A,in_git,committed
