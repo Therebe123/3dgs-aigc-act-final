@@ -15,7 +15,7 @@
 | B | 谢佳杭 | 25210980118 | 题目一 AIGC 与融合 | [`task1_3dgs_aigc/member_B/`](task1_3dgs_aigc/member_B/README.md) |
 | C | 李浩然 | 25210980063 | 题目二 ACT 实验 | [`task2_lerobot_act/member_C/`](task2_lerobot_act/member_C/README.md) |
 
-实验报告材料见 [`reports/README.md`](reports/README.md)。
+实验报告：[`reports/final_report.pdf`](reports/final_report.pdf)。
 
 ## 快速开始
 
